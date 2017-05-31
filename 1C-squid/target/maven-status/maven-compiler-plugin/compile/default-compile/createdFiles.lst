@@ -1,0 +1,15 @@
+org\sonar\_1C\parser\CharsetAwareVisitor.class
+org\sonar\_1C\parser\_1СParser.class
+org\sonar\_1C\api\_1CMetric.class
+org\sonar\_1C\metrics\ComplexityVisitor.class
+org\sonar\_1C\lexer\_1CIdentifierAndKeywordChannel.class
+org\sonar\_1C\lexer\_1СLexer.class
+org\sonar\_1C\api\_1СKeyword.class
+org\sonar\_1C\parser\_1CAstScanner.class
+org\sonar\_1C\api\_1CTokenType.class
+org\sonar\_1C\parser\_1СGrammar.class
+org\sonar\_1C\parser\_1CConfiguration.class
+org\sonar\_1C\parser\_1CCommentAnalyser.class
+org\sonar\_1C\metrics\FileLinesVisitor.class
+org\sonar\_1C\parser\_1CAstScanner$1.class
+org\sonar\_1C\api\_1CPunctuator.class

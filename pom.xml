@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.sonar-plugins</groupId>
+    <artifactId>parent</artifactId>
+    <version>16</version>
+  </parent>
+
+  <groupId>org.codehaus.sonar-plugins.1C</groupId>
+  <artifactId>1C</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <name>1C</name>
+  <inceptionYear>2017</inceptionYear>
+  <organization>
+    <name>Vasiliy Kazmin and SonarSource</name>
+  </organization>
+  <licenses>
+    <license>
+      <name>GNU LGPL 3</name>
+      <url>http://www.gnu.org/licenses/lgpl.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>vasiliy.kazmin</id>
+      <name>Vasiliy Kazmin</name>
+      <url>http://infostart.ru/profile/44963/</url>
+    </developer>
+  </developers>
+
+  <modules>
+    <module>1C-squid</module>
+    <module>1C-checks</module>
+    <module>sonar-1C-plugin</module>
+    <module>sslr-1C-toolkit</module>
+  </modules>
+
+  <!--<scm>
+    <connection>scm:git:git@github.com:SonarCommunity/sonar-javascript.git</connection>
+    <developerConnection>scm:git:git@github.com:SonarCommunity/sonar-javascript.git</developerConnection>
+    <url>https://github.com/SonarCommunity/sonar-javascript</url>
+    <tag>1.3</tag>
+  </scm>-->
+  <!--<issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/SONARPLUGINS/component/14683</url>
+  </issueManagement>
+  <ciManagement>
+    <system>Cloudbees</system>
+    <url>http://sonarplugins.ci.cloudbees.com/job/javascript</url>
+  </ciManagement>-->
+
+  <properties>
+    <license.title>Sonar 1С Plugin</license.title>
+
+    <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
+
+    <sonar.version>3.0</sonar.version>
+    <sslr.version>1.18</sslr.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-plugin-api</artifactId>
+        <version>${sonar.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar</groupId>
+        <artifactId>sonar-testing-harness</artifactId>
+        <version>${sonar.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-core</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-xpath</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-toolkit</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr</groupId>
+        <artifactId>sslr-testing-harness</artifactId>
+        <version>${sslr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.sonar.sslr-squid-bridge</groupId>
+        <artifactId>sslr-squid-bridge</artifactId>
+        <version>2.2</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.10</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>1.9.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-all</artifactId>
+        <version>1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert</artifactId>
+        <version>1.4</version>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>0.9.15</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+</project>

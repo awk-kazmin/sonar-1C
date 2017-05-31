@@ -1,0 +1,24 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/C:/Users/kazmin/.m2/repository/ch/qos/logback/logback-classic/0.9.15/logback-classic-0.9.15.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/kazmin/.m2/repository/org/slf4j/slf4j-nop/1.5.3/slf4j-nop-1.5.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/C:/Users/kazmin/.m2/repository/org/slf4j/slf4j-jdk14/1.5.6/slf4j-jdk14-1.5.6.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+22:31:56,986 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback-test.xml] at [jar:file:/C:/Users/kazmin/.m2/repository/org/codehaus/sonar/sonar-core/3.0/sonar-core-3.0-tests.jar!/logback-test.xml]
+22:31:57,095 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+22:31:57,095 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+22:31:57,095 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [STDOUT]
+22:31:57,111 |-ERROR in ch.qos.logback.core.joran.spi.Interpreter@7:14 - no applicable action for [encoder], current pattern is [[configuration][appender][encoder]]
+22:31:57,111 |-ERROR in ch.qos.logback.core.joran.spi.Interpreter@8:16 - no applicable action for [pattern], current pattern is [[configuration][appender][encoder][pattern]]
+22:31:57,111 |-ERROR in ch.qos.logback.core.ConsoleAppender[STDOUT] - No layout set for the appender named "STDOUT".
+22:31:57,111 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Popping appender named [STDOUT] from the object stack
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.hibernate] to true
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LevelAction - org.hibernate level set to WARN
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [org.dbunit] to true
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LevelAction - org.dbunit level set to WARN
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting additivity of logger [java.sql] to true
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LevelAction - java.sql level set to WARN
+22:31:57,111 |-INFO in ch.qos.logback.classic.joran.action.LevelAction - root level set to INFO
+22:31:57,111 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [STDOUT] to Logger[root]
+
+SLF4J: The requested version 1.5.6 by your slf4j binding is not compatible with [1.6]
+SLF4J: See http://www.slf4j.org/codes.html#version_mismatch for further details.

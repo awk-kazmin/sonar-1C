@@ -1,0 +1,3 @@
+org\sonar\_1C\checks\XPathCheck.class
+org\sonar\_1C\checks\ParsingErrorCheck.class
+org\sonar\_1C\checks\CheckList.class
