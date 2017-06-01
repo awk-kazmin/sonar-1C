@@ -93,7 +93,7 @@ public class _1CTestDriverSensorTest {
     verify(context).saveMeasure((Resource) anyObject(), eq(CoreMetrics.TEST_EXECUTION_TIME), eq(700.0));
     verify(context).saveMeasure((Resource) anyObject(), eq(CoreMetrics.TEST_SUCCESS_DENSITY), eq(100.0));
 
-    verify(context).saveSource((Resource) anyObject(), eq("This is content for PersonTest.bsl 1С file used in unit tests."));
+    verify(context).saveSource((Resource) anyObject(), eq("This is content for PersonTest.bsl file used in unit tests."));
   }
 
   @Test

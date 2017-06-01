@@ -1,1 +1,1 @@
-This is content for PersonTest.bsl 1C file used in unit tests.
+This is content for PersonTest.bsl file used in unit tests.
