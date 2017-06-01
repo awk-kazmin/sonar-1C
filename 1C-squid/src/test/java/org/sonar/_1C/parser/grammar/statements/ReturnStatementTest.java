@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.statements;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class ReturnStatementTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.RETURN_STATEMENT))
+    assertThat(g.rule(_1CGrammar.RETURN_STATEMENT))
         .as("EOS is end of input")
         .matches("RETURN")
         .matches("RETURN 42")
@@ -40,7 +40,7 @@ public class ReturnStatementTest {
 
   @Test
   public void realLife() {
-    assertThat(g.rule(_1СGrammar.RETURN_STATEMENT))
+    assertThat(g.rule(_1CGrammar.RETURN_STATEMENT))
         .matches("RETURN")
         .matches("RETURN a + b");
   }

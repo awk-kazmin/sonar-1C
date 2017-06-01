@@ -21,24 +21,24 @@ package org.sonar._1C.parser.grammar.functions;
 
 import com.google.common.base.Joiner;
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class ProgramTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void realLife() {
-    assertThat(g.rule(_1СGrammar.METHOD_DEFINATION))
+    assertThat(g.rule(_1CGrammar.METHOD_DEFINATION))
     .matches("Function A() EndFunction")
     .matches("function A() a=5 EndFunction")
     .notMatches("function1 A() EndFunction")
     ;
 
-    assertThat(g.rule(_1СGrammar.PROGRAM))
+    assertThat(g.rule(_1CGrammar.PROGRAM))
         .matches("")
         .matches("VAR a;")
         .matches("IF (TRUE) THEN ENDIF;")
@@ -48,13 +48,13 @@ public class ProgramTest {
                 "ENDFUNCTION")
         );
 
-    assertThat(g.rule(_1СGrammar.PROGRAM)).matches(code(
+    assertThat(g.rule(_1CGrammar.PROGRAM)).matches(code(
         //"//#!/usr/bin/env node",
         "FUNCTION func() ENDFUNCTION"));
 
 
     // http://www.w3schools.com/js/tryit.asp?filename=tryjs_ifthenelse
-    assertThat(g.rule(_1СGrammar.PROGRAM)).matches(code(
+    assertThat(g.rule(_1CGrammar.PROGRAM)).matches(code(
         "VAR d;",
         "VAR time;",
         "IF (time < 10) THEN",

@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.sonar._1C.api._1СKeyword;
+import org.sonar._1C.api._1CKeyword;
 
 import static com.sonar.sslr.api.GenericTokenType.IDENTIFIER;
 
@@ -42,10 +42,10 @@ public class _1CIdentifierAndKeywordChannel extends Channel<Lexer> {
     private final Matcher matcher;
     private final Token.Builder tokenBuilder = Token.builder();
 
-    public _1CIdentifierAndKeywordChannel(String regexp, _1СKeyword[]... keywordSets) {
+    public _1CIdentifierAndKeywordChannel(String regexp, _1CKeyword[]... keywordSets) {
         ImmutableMap.Builder<String, TokenType> keywordsMapBuilder = ImmutableMap.builder();
-        for (_1СKeyword[] keywords : keywordSets) {
-            for (_1СKeyword keyword : keywords) {
+        for (_1CKeyword[] keywords : keywordSets) {
+            for (_1CKeyword keyword : keywords) {
                 String en_keywordValue = keyword.getEnValue();
                 String ru_keywordValue = keyword.getRuValue();
                 keywordsMapBuilder.put(en_keywordValue, keyword);

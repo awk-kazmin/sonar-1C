@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.functions;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class SourceElementsTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.VARS_DECLARATION))
+    assertThat(g.rule(_1CGrammar.VARS_DECLARATION))
         .matches("VAR a;");
   }
 

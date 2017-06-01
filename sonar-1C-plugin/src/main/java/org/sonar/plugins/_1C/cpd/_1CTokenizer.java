@@ -27,7 +27,7 @@ import net.sourceforge.pmd.cpd.TokenEntry;
 import net.sourceforge.pmd.cpd.Tokenizer;
 import net.sourceforge.pmd.cpd.Tokens;
 import org.sonar._1C.parser._1CConfiguration;
-import org.sonar._1C.lexer._1СLexer;
+import org.sonar._1C.lexer._1CLexer;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -42,7 +42,7 @@ public class _1CTokenizer implements Tokenizer {
   }
 
   public final void tokenize(SourceCode source, Tokens cpdTokens) {
-    Lexer lexer = _1СLexer.create(new _1CConfiguration(charset));
+    Lexer lexer = _1CLexer.create(new _1CConfiguration(charset));
     String fileName = source.getFileName();
     List<Token> tokens = lexer.lex(new File(fileName));
     for (Token token : tokens) {

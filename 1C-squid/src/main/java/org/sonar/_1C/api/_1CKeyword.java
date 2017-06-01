@@ -26,7 +26,7 @@ import org.sonar.sslr.grammar.GrammarRuleKey;
 import java.util.HashSet;
 import java.util.Set;
 
-public enum _1СKeyword implements TokenType, GrammarRuleKey {
+public enum _1CKeyword implements TokenType, GrammarRuleKey {
 
   // Reserved words
 
@@ -97,11 +97,11 @@ public enum _1СKeyword implements TokenType, GrammarRuleKey {
 
   private final Boolean is_one;
 
-  private _1СKeyword(String value) {
+  private _1CKeyword(String value) {
     this(value, value);
   }
 
-  private _1СKeyword(String en_value, String ru_value) {
+  private _1CKeyword(String en_value, String ru_value) {
     this.en_value = en_value.toUpperCase();
     this.ru_value = ru_value.toUpperCase();
     value = en_value;
@@ -126,7 +126,7 @@ public enum _1СKeyword implements TokenType, GrammarRuleKey {
 
 
   public static String[] keywordValues() {
-    _1СKeyword[] keywordsEnum = _1СKeyword.values();
+    _1CKeyword[] keywordsEnum = _1CKeyword.values();
     Set<String> keywords = new HashSet<String>();
     for (int i = 0; i < keywordsEnum.length; i++) {
       keywords.add(keywordsEnum[i].getEnValue());

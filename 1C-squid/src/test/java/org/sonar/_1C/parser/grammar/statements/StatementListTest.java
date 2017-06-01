@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.statements;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class StatementListTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.STATEMENT))
+    assertThat(g.rule(_1CGrammar.STATEMENT))
             .matches(";")
             .matches("b=5")
             .matches("Если b=5 Тогда а=2; б=5 КонецЕсли")

@@ -26,7 +26,7 @@ import com.sonar.sslr.impl.channel.BomCharacterChannel;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.sonar._1C.parser._1CConfiguration;
-import org.sonar._1C.api._1СKeyword;
+import org.sonar._1C.api._1CKeyword;
 import org.sonar._1C.api._1CTokenType;
 
 import static com.sonar.sslr.test.lexer.LexerMatchers.hasComment;
@@ -34,13 +34,13 @@ import static com.sonar.sslr.test.lexer.LexerMatchers.hasToken;
 import static com.sonar.sslr.test.lexer.LexerMatchers.hasTokens;
 import static org.junit.Assert.assertThat;
 
-public class _1СLexerTest {
+public class _1CLexerTest {
 
   private static Lexer lexer;
 
   @BeforeClass
   public static void init() {
-    lexer = _1СLexer.create(new _1CConfiguration(Charsets.UTF_8));
+    lexer = _1CLexer.create(new _1CConfiguration(Charsets.UTF_8));
   }
 
 
@@ -74,26 +74,26 @@ public class _1СLexerTest {
 
   @Test
   public void nullLiteral() {
-    assertThat(lexer.lex("null"), hasToken("NULL", _1СKeyword.NULL));
-    assertThat(lexer.lex("NULL"), hasToken("NULL", _1СKeyword.NULL));
-    assertThat(lexer.lex("Null"), hasToken("NULL", _1СKeyword.NULL));
+    assertThat(lexer.lex("null"), hasToken("NULL", _1CKeyword.NULL));
+    assertThat(lexer.lex("NULL"), hasToken("NULL", _1CKeyword.NULL));
+    assertThat(lexer.lex("Null"), hasToken("NULL", _1CKeyword.NULL));
   }
 
   @Test
   public void undefLiteral() {
-    assertThat(lexer.lex("Неопределено"), hasToken("НЕОПРЕДЕЛЕНО", _1СKeyword.UNDEF));
+    assertThat(lexer.lex("Неопределено"), hasToken("НЕОПРЕДЕЛЕНО", _1CKeyword.UNDEF));
   }
 
   @Test
   public void export() {
-    assertThat(lexer.lex("Export"), hasToken("EXPORT", _1СKeyword.EXPORT));
-    assertThat(lexer.lex("Экспорт"), hasToken("ЭКСПОРТ", _1СKeyword.EXPORT));
+    assertThat(lexer.lex("Export"), hasToken("EXPORT", _1CKeyword.EXPORT));
+    assertThat(lexer.lex("Экспорт"), hasToken("ЭКСПОРТ", _1CKeyword.EXPORT));
   }
 
   @Test
   public void booleanLiteral() {
-    assertThat(lexer.lex("false"), hasToken("FALSE", _1СKeyword.FALSE));
-    assertThat(lexer.lex("true"), hasToken("TRUE", _1СKeyword.TRUE));
+    assertThat(lexer.lex("false"), hasToken("FALSE", _1CKeyword.FALSE));
+    assertThat(lexer.lex("true"), hasToken("TRUE", _1CKeyword.TRUE));
   }
 
   @Test

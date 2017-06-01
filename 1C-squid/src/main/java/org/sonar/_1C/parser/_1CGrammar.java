@@ -20,10 +20,10 @@
 package org.sonar._1C.parser;
 
 import com.sonar.sslr.api.GenericTokenType;
-import org.sonar._1C.api._1СKeyword;
+import org.sonar._1C.api._1CKeyword;
 import org.sonar._1C.api._1CPunctuator;
 import org.sonar._1C.api._1CTokenType;
-import org.sonar._1C.lexer._1СLexer;
+import org.sonar._1C.lexer._1CLexer;
 import org.sonar.sslr.grammar.GrammarRuleKey;
 import org.sonar.sslr.grammar.LexerlessGrammarBuilder;
 import org.sonar.sslr.parser.LexerlessGrammar;
@@ -31,14 +31,14 @@ import org.sonar.sslr.parser.LexerlessGrammar;
 import static org.sonar._1C.api._1CPunctuator.*;
 import static org.sonar._1C.api._1CTokenType.IDENTIFIER;
 import static org.sonar._1C.api._1CTokenType.NUMERIC_LITERAL;
-import static org.sonar._1C.api._1СKeyword.*;
+import static org.sonar._1C.api._1CKeyword.*;
 
 /**
  * Grammar for ECMAScript.
  * Based on <a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ECMA-262</a>
  * edition 5.1 (June 2011).
  */
-public enum _1СGrammar implements GrammarRuleKey {
+public enum _1CGrammar implements GrammarRuleKey {
 
   /**
    * End of file.
@@ -142,7 +142,7 @@ public enum _1СGrammar implements GrammarRuleKey {
 
     b.rule(IDENTIFIER_NAME).is(
         SPACING,
-        b.regexp(_1СLexer.IDENTIFIER)
+        b.regexp(_1CLexer.IDENTIFIER)
     );
 
     b.rule(LITERAL).is(b.firstOf(
@@ -178,19 +178,19 @@ public enum _1СGrammar implements GrammarRuleKey {
    */
   private static void lexical(LexerlessGrammarBuilder b) {
     b.rule(SPACING).is(
-        b.skippedTrivia(b.regexp("[" + _1СLexer.LINE_TERMINATOR + _1СLexer.WHITESPACE + "]*+")),
+        b.skippedTrivia(b.regexp("[" + _1CLexer.LINE_TERMINATOR + _1CLexer.WHITESPACE + "]*+")),
         b.zeroOrMore(
-            b.firstOf(b.commentTrivia(b.regexp(_1СLexer.COMMENT)), b.commentTrivia(_1СLexer.PREPOCESSOR)),
-            b.skippedTrivia(b.regexp("[" + _1СLexer.LINE_TERMINATOR + _1СLexer.WHITESPACE + "]*+")))).skip();
+            b.firstOf(b.commentTrivia(b.regexp(_1CLexer.COMMENT)), b.commentTrivia(_1CLexer.PREPOCESSOR)),
+            b.skippedTrivia(b.regexp("[" + _1CLexer.LINE_TERMINATOR + _1CLexer.WHITESPACE + "]*+")))).skip();
 
     b.rule(SPACING_NO_LB).is(
         b.zeroOrMore(
             b.firstOf(
-                b.skippedTrivia(b.regexp("[" + _1СLexer.WHITESPACE + "]++")),
-                b.commentTrivia(b.regexp("(?:" + _1СLexer.SINGLE_LINE_COMMENT +  ")"))))
+                b.skippedTrivia(b.regexp("[" + _1CLexer.WHITESPACE + "]++")),
+                b.commentTrivia(b.regexp("(?:" + _1CLexer.SINGLE_LINE_COMMENT +  ")"))))
     ).skip();
 
-    b.rule(NEXT_NOT_LB).is(b.nextNot(b.regexp("(?:" + "|[" + _1СLexer.LINE_TERMINATOR + "])"))
+    b.rule(NEXT_NOT_LB).is(b.nextNot(b.regexp("(?:" + "|[" + _1CLexer.LINE_TERMINATOR + "])"))
     ).skip();
 
     b.rule(LINE_TERMINATOR_SEQUENCE).is(b.skippedTrivia(b.regexp("(?:\\n|\\r\\n|\\r|\\u2028|\\u2029)"))).skip();
@@ -213,22 +213,22 @@ public enum _1СGrammar implements GrammarRuleKey {
     b.rule(IDENTIFIER).is(
         SPACING,
         b.nextNot(KEYWORD),
-        b.regexp(_1СLexer.IDENTIFIER)
+        b.regexp(_1CLexer.IDENTIFIER)
     );
 
     b.rule(NUMERIC_LITERAL).is(
         SPACING,
-        b.regexp(_1СLexer.NUMERIC_LITERAL)
+        b.regexp(_1CLexer.NUMERIC_LITERAL)
     );
 
     b.rule(STRING_LITERAL).is(
             SPACING,
-            b.token(GenericTokenType.LITERAL, b.regexp(_1СLexer.STRING_LITERAL))
+            b.token(GenericTokenType.LITERAL, b.regexp(_1CLexer.STRING_LITERAL))
     );
 
     b.rule(DATETIME_LITERAL).is(
             SPACING,
-            b.token(GenericTokenType.LITERAL, b.regexp(_1СLexer.DATE_LITERAL))
+            b.token(GenericTokenType.LITERAL, b.regexp(_1CLexer.DATE_LITERAL))
     );
 
     punctuators(b);
@@ -260,10 +260,10 @@ public enum _1СGrammar implements GrammarRuleKey {
   }
 
   private static void keywords(LexerlessGrammarBuilder b) {
-    b.rule(LETTER_OR_DIGIT).is(b.regexp(_1СLexer.IDENTIFIER_PART));
-    Object[] rest = new Object[_1СKeyword.values().length - 2];
-    for (int i = 0; i < _1СKeyword.values().length; i++) {
-      _1СKeyword tokenType = _1СKeyword.values()[i];
+    b.rule(LETTER_OR_DIGIT).is(b.regexp(_1CLexer.IDENTIFIER_PART));
+    Object[] rest = new Object[_1CKeyword.values().length - 2];
+    for (int i = 0; i < _1CKeyword.values().length; i++) {
+      _1CKeyword tokenType = _1CKeyword.values()[i];
 
       if(tokenType.isOne()) {
         b.rule(tokenType).is(SPACING, b.regexp("(?iu)(?:"+tokenType.getEnValue()+")"), b.nextNot(LETTER_OR_DIGIT));
@@ -279,8 +279,8 @@ public enum _1СGrammar implements GrammarRuleKey {
       }
     }
     b.rule(KEYWORD).is(b.firstOf(
-        _1СKeyword.values()[0].isOne()? b.regexp("(?iu)(?:"+_1СKeyword.values()[0].getEnValue()+")"):b.regexp("(?iu)(?:"+_1СKeyword.values()[0].getEnValue()+"|"+_1СKeyword.values()[0].getRuValue()+")"),
-        _1СKeyword.values()[1].isOne()? b.regexp("(?iu)(?:"+_1СKeyword.values()[1].getEnValue()+")"):b.regexp("(?iu)(?:"+_1СKeyword.values()[1].getEnValue()+"|"+_1СKeyword.values()[1].getRuValue()+")"),
+        _1CKeyword.values()[0].isOne()? b.regexp("(?iu)(?:"+ _1CKeyword.values()[0].getEnValue()+")"):b.regexp("(?iu)(?:"+ _1CKeyword.values()[0].getEnValue()+"|"+ _1CKeyword.values()[0].getRuValue()+")"),
+        _1CKeyword.values()[1].isOne()? b.regexp("(?iu)(?:"+ _1CKeyword.values()[1].getEnValue()+")"):b.regexp("(?iu)(?:"+ _1CKeyword.values()[1].getEnValue()+"|"+ _1CKeyword.values()[1].getRuValue()+")"),
         rest), b.nextNot(LETTER_OR_DIGIT));
   }
 
@@ -510,7 +510,7 @@ public enum _1СGrammar implements GrammarRuleKey {
 
   private final String internalName;
 
-  private _1СGrammar() {
+  private _1CGrammar() {
     String name = name();
     StringBuilder sb = new StringBuilder();
     int i = 0;

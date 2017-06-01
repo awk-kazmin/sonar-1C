@@ -22,7 +22,7 @@ package org.sonar.plugins._1C.colorizer;
 import com.google.common.collect.ImmutableList;
 import org.sonar.api.web.CodeColorizerFormat;
 import org.sonar.colorizer.*;
-import org.sonar._1C.api._1СKeyword;
+import org.sonar._1C.api._1CKeyword;
 import org.sonar.plugins._1C.core._1C;
 
 import java.util.List;
@@ -41,7 +41,7 @@ public class _1CColorizerFormat extends CodeColorizerFormat {
         new JavadocTokenizer("<span class=\"cppd\">", "</span>"),
         new CppDocTokenizer("<span class=\"cppd\">", "</span>"),
         new HtmlCommentTokenizer("<span class=\"cd\">", "</span>"),
-        new KeywordsTokenizer("<span class=\"k\">", "</span>", _1СKeyword.keywordValues()));
+        new KeywordsTokenizer("<span class=\"k\">", "</span>", _1CKeyword.keywordValues()));
   }
 
 }

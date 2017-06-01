@@ -32,8 +32,8 @@ import org.sonar.colorizer.KeywordsTokenizer;
 import org.sonar.colorizer.StringTokenizer;
 import org.sonar.colorizer.Tokenizer;
 import org.sonar._1C.parser._1CConfiguration;
-import org.sonar._1C.api._1СKeyword;
-import org.sonar._1C.parser._1СParser;
+import org.sonar._1C.api._1CKeyword;
+import org.sonar._1C.parser._1CParser;
 import org.sonar.sslr.toolkit.AbstractConfigurationModel;
 import org.sonar.sslr.toolkit.ConfigurationProperty;
 import org.sonar.sslr.toolkit.Validators;
@@ -63,7 +63,7 @@ public class _1CConfigurationModel extends AbstractConfigurationModel {
 
   @Override
   public Parser<? extends Grammar> doGetParser() {
-    return _1СParser.create(getConfiguration());
+    return _1CParser.create(getConfiguration());
   }
 
   @Override
@@ -73,7 +73,7 @@ public class _1CConfigurationModel extends AbstractConfigurationModel {
         new CDocTokenizer("<span class=\"cd\">", "</span>"),
         new JavadocTokenizer("<span class=\"cppd\">", "</span>"),
         new CppDocTokenizer("<span class=\"cppd\">", "</span>"),
-        new KeywordsTokenizer("<span class=\"k\">", "</span>", _1СKeyword.keywordValues()));
+        new KeywordsTokenizer("<span class=\"k\">", "</span>", _1CKeyword.keywordValues()));
   }
 
   @VisibleForTesting

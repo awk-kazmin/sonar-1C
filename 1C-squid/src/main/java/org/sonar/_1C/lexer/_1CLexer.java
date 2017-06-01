@@ -25,16 +25,16 @@ import com.sonar.sslr.impl.channel.BlackHoleChannel;
 import com.sonar.sslr.impl.channel.PunctuatorChannel;
 import com.sonar.sslr.impl.channel.UnknownCharacterChannel;
 import org.sonar._1C.parser._1CConfiguration;
-import org.sonar._1C.api._1СKeyword;
+import org.sonar._1C.api._1CKeyword;
 import org.sonar._1C.api._1CPunctuator;
 import org.sonar._1C.api._1CTokenType;
 
 import static com.sonar.sslr.impl.channel.RegexpChannelBuilder.commentRegexp;
 import static com.sonar.sslr.impl.channel.RegexpChannelBuilder.regexp;
 
-public final class _1СLexer {
+public final class _1CLexer {
 
-  private _1СLexer() {
+  private _1CLexer() {
   }
 
 
@@ -95,7 +95,7 @@ public final class _1СLexer {
 
         .withChannel(regexp(_1CTokenType.NUMERIC_LITERAL, NUMERIC_LITERAL))
 
-        .withChannel(new _1CIdentifierAndKeywordChannel(IDENTIFIER, _1СKeyword.values()))
+        .withChannel(new _1CIdentifierAndKeywordChannel(IDENTIFIER, _1CKeyword.values()))
         .withChannel(new PunctuatorChannel(_1CPunctuator.values()))
 
         .withChannel(new UnknownCharacterChannel(true))

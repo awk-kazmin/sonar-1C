@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.expressions;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class IdentifierNameTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.IDENTIFIER_NAME))
+    assertThat(g.rule(_1CGrammar.IDENTIFIER_NAME))
         .matches("null")
         .matches("true")
         .matches("false");

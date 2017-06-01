@@ -20,19 +20,18 @@
 package org.sonar._1C.parser.grammar.lexical;
 
 import org.junit.Test;
-import org.sonar._1C.api._1CTokenType;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class StringTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.STRING_LITERAL))
+    assertThat(g.rule(_1CGrammar.STRING_LITERAL))
             .as("Simple")
             .matches("\"\"")
             .matches("\"Ghbdtn vbh //\"")

@@ -24,13 +24,13 @@ import com.sonar.sslr.impl.events.ParsingEventListener;
 import org.sonar.sslr.parser.LexerlessGrammar;
 import org.sonar.sslr.parser.ParserAdapter;
 
-public final class _1СParser {
+public final class _1CParser {
 
-  private _1СParser() {
+  private _1CParser() {
   }
 
   public static Parser<LexerlessGrammar> create(_1CConfiguration conf, ParsingEventListener... parsingEventListeners) {
-    return new ParserAdapter<LexerlessGrammar>(conf.getCharset(), _1СGrammar.createGrammar());
+    return new ParserAdapter<LexerlessGrammar>(conf.getCharset(), _1CGrammar.createGrammar());
   }
 
 }

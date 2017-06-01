@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.expressions;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class CallExpressionTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
-    assertThat(g.rule(_1СGrammar.CALL_EXPRESSION))
+    assertThat(g.rule(_1CGrammar.CALL_EXPRESSION))
         .matches(" ( arguments )")
         .notMatches(" ( arguments ) ( arguments )");
 

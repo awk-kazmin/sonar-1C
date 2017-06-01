@@ -30,7 +30,7 @@ public class _1CKeywordTest {
     //assertThat(_1СKeyword.values().length).isEqualTo(35);
     //assertThat(_1СKeyword.keywordValues().length).isEqualTo(_1СKeyword.values().length);
 
-    for (_1СKeyword keyword : _1СKeyword.values()) {
+    for (_1CKeyword keyword : _1CKeyword.values()) {
       assertThat(keyword.getName()).isEqualTo(keyword.name());
       assertThat(keyword.hasToBeSkippedFromAst(null)).isFalse();
     }

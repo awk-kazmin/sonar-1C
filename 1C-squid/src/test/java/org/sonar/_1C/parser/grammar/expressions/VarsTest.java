@@ -20,25 +20,25 @@
 package org.sonar._1C.parser.grammar.expressions;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class VarsTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void ok() {
 
 
-    assertThat(g.rule(_1СGrammar.VAR_DECLARATION))
+    assertThat(g.rule(_1CGrammar.VAR_DECLARATION))
             .matches("А")
             .matches("А EXPORT")
             .matches("F ЭКСПОРТ")
     ;
-    assertThat(g.rule(_1СGrammar.VARS_DECLARATION))
+    assertThat(g.rule(_1CGrammar.VARS_DECLARATION))
             .matches("VAR А;")
             .matches("ПЕРЕМ А, Б;")
             .matches("ПЕРЕМ А ЭКСПОРТ;")

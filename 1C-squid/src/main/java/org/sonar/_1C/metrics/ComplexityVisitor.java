@@ -23,7 +23,7 @@ import com.sonar.sslr.api.AstNode;
 import com.sonar.sslr.squid.SquidAstVisitor;
 import org.sonar._1C.api._1CMetric;
 import org.sonar._1C.api._1CPunctuator;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 public class ComplexityVisitor extends SquidAstVisitor<LexerlessGrammar> {
@@ -32,11 +32,11 @@ public class ComplexityVisitor extends SquidAstVisitor<LexerlessGrammar> {
   public void init() {
     subscribeTo(
         // Branching nodes
-        _1СGrammar.IF_STATEMENT,
-        _1СGrammar.ITERATION_STATEMENT,
-        _1СGrammar.CATCH_,
-        _1СGrammar.RETURN_STATEMENT,
-        _1СGrammar.THROW_STATEMENT,
+        _1CGrammar.IF_STATEMENT,
+        _1CGrammar.ITERATION_STATEMENT,
+        _1CGrammar.CATCH_,
+        _1CGrammar.RETURN_STATEMENT,
+        _1CGrammar.THROW_STATEMENT,
         // Expressions
         _1CPunctuator.QUERY
         //_1CPunctuator.ANDAND,
@@ -46,7 +46,7 @@ public class ComplexityVisitor extends SquidAstVisitor<LexerlessGrammar> {
 
   @Override
   public void visitNode(AstNode astNode) {
-    if (astNode.is(_1СGrammar.RETURN_STATEMENT) && isLastReturnStatement(astNode)) {
+    if (astNode.is(_1CGrammar.RETURN_STATEMENT) && isLastReturnStatement(astNode)) {
       return;
     }
     getContext().peekSourceCode().add(_1CMetric.COMPLEXITY, 1);
@@ -54,7 +54,7 @@ public class ComplexityVisitor extends SquidAstVisitor<LexerlessGrammar> {
 
   private boolean isLastReturnStatement(AstNode astNode) {
     AstNode parent = astNode.getParent().getParent();
-    return parent.is(_1СGrammar.SOURCE_ELEMENT);
+    return parent.is(_1CGrammar.SOURCE_ELEMENT);
   }
 
 }

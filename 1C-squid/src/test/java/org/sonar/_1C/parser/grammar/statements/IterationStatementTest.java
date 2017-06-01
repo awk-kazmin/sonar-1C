@@ -20,18 +20,18 @@
 package org.sonar._1C.parser.grammar.statements;
 
 import org.junit.Test;
-import org.sonar._1C.parser._1СGrammar;
+import org.sonar._1C.parser._1CGrammar;
 import org.sonar.sslr.parser.LexerlessGrammar;
 
 import static org.sonar.sslr.tests.Assertions.assertThat;
 
 public class IterationStatementTest {
 
-  LexerlessGrammar g = _1СGrammar.createGrammar();
+  LexerlessGrammar g = _1CGrammar.createGrammar();
 
   @Test
   public void realLife() {
-    assertThat(g.rule(_1СGrammar.ITERATION_STATEMENT))
+    assertThat(g.rule(_1CGrammar.ITERATION_STATEMENT))
         .matches("WHILE (a < b) DO ENDDO")
             .matches("ДЛЯ КАЖДОГО СТР ИЗ F ЦИКЛ КОНЕЦЦИКЛА")
             .matches("ДЛЯ bn=1 ПО 5 ЦИКЛ КОНЕЦЦИКЛА");

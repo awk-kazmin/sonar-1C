@@ -33,7 +33,6 @@ import com.sonar.sslr.squid.metrics.LinesOfCodeVisitor;
 import com.sonar.sslr.squid.metrics.LinesVisitor;
 import org.sonar._1C.api._1CMetric;
 import org.sonar._1C.api._1CTokenType;
-import org.sonar._1C.lexer._1CIdentifierAndKeywordChannel;
 import org.sonar._1C.metrics.ComplexityVisitor;
 import org.sonar.squid.api.*;
 import org.sonar.squid.indexer.QueryByType;
@@ -66,7 +65,7 @@ public final class _1CAstScanner {
   public static AstScanner<LexerlessGrammar> create(
           _1CConfiguration conf, SquidAstVisitor<LexerlessGrammar>... visitors) {
     final SquidAstVisitorContextImpl<LexerlessGrammar> context = new SquidAstVisitorContextImpl<LexerlessGrammar>(new SourceProject("1С Project"));
-    final Parser<LexerlessGrammar> parser = _1СParser.create(conf);
+    final Parser<LexerlessGrammar> parser = _1CParser.create(conf);
 
     AstScanner.Builder<LexerlessGrammar> builder = AstScanner.<LexerlessGrammar> builder(context).setBaseParser(parser);
 
@@ -83,20 +82,20 @@ public final class _1CAstScanner {
     builder.withSquidAstVisitor(CounterVisitor.<LexerlessGrammar> builder()
             .setMetricDef(_1CMetric.METHODS)
             .subscribeTo(
-                    _1СGrammar.METHOD_DEFINATION
+                    _1CGrammar.METHOD_DEFINATION
             ).build());
 
 
     builder.withSquidAstVisitor(CounterVisitor.<LexerlessGrammar> builder()
             .setMetricDef(_1CMetric.FUNCTIONS)
             .subscribeTo(
-                    _1СGrammar.FUNCTION_DEFINATION
+                    _1CGrammar.FUNCTION_DEFINATION
             ).build());
 
     builder.withSquidAstVisitor(CounterVisitor.<LexerlessGrammar> builder()
             .setMetricDef(_1CMetric.PROCEDURES)
             .subscribeTo(
-                    _1СGrammar.PROCEDURE_DEFINATION
+                    _1CGrammar.PROCEDURE_DEFINATION
             ).build());
 
     builder.withSquidAstVisitor(
@@ -111,7 +110,7 @@ public final class _1CAstScanner {
                         return function;
                       }
                     },
-                    _1СGrammar.METHOD_DEFINATION));
+                    _1CGrammar.METHOD_DEFINATION));
 
 
     /* Metrics */
